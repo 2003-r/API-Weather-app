@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "f8894583-5e6e-40e1-9c0e-c9888cc4e342",
+		"name": "Weather APi",
+		"description": "Backend API for Weather applicaton to retrieve current , forcast, history weather",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27124368",
+		"_collection_link": "https://blue-escape-499202.postman.co/workspace/Iushare~23b1e813-5170-426d-b15d-d87f81bb26fb/collection/27124368-f8894583-5e6e-40e1-9c0e-c9888cc4e342?action=share&creator=27124368&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "CurrentWeather",
+			"item": [
+				{
+					"name": "Get Current Weather",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/currentweather/?city=london",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"currentweather",
+								""
+							],
+							"query": [
+								{
+									"key": "city",
+									"value": "london"
+								}
+							]
+						},
+						"description": "request the current weather data for a specific city , that will retrieve the weather data of the city in a JSON format."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ForcastWeather",
+			"item": [
+				{
+					"name": "Forecast weather",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/forcastweather/?city=london",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"forcastweather",
+								""
+							],
+							"query": [
+								{
+									"key": "city",
+									"value": "london"
+								}
+							]
+						},
+						"description": "request the forecast weather data for a specific city, provide the city name , that will retrieve the weather data of the city in a JSON format."
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HistoryWeather",
+			"item": [
+				{
+					"name": "History Weather",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/api/historyweather/?id=4298960",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"historyweather",
+								""
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4298960"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "request the history weather data for a specific city, need to provide the city id , that will retrieve the weather data of the city in a JSON format."
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Login user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"TOKEN\", pm.response.json().token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "JSON Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"johndoe@example.com\",\r\n  \"password\": \"password123\"\r\n}\r\n"
+						},
+						"url": {
+							"raw": "{{URL}}/api/auth/login",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"TOKEN\", pm.response.json().token)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": "JSON Type",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n\t\t\"name\": \"Stephanie Hanson\",\r\n\t\t\"email\": \"steph@gmail.com\",\r\n\t\t\"role\": \"user\",\r\n\t\t\"password\": \"123456\"\r\n\t}"
+						},
+						"url": {
+							"raw": "{{URL}}/api/auth/register",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
