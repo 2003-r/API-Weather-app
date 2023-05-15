@@ -50,9 +50,8 @@ Start the server
 
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**.                     |
-| `start`   |  `int`   |  **Required**.                    |
-| `start `  |  `int`   |  **Required**.                    |
+| `city id` | `string` | **Required**.                     |
+
 
 #### POST Register user
 
